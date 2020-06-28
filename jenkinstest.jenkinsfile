@@ -1,7 +1,7 @@
 pipeline{
     environment{
   //environment variables can be overidden in the passed in parameters of the jenkins job configuration
-    def TARGET_ENV = "${params.TARGET_ENV}.trim()"
+    def TARGET_ENV = "${params.TARGET_ENV.trim()}"
     def HOST = "nexus_server"
     def playbook_dir = "${WORKSPACE}/playbooks"
   }
@@ -15,7 +15,7 @@ pipeline{
         stage("A"){
             steps{
                 script{
-                echo "HOST is ${env.HOST}.trim()"
+                echo "HOST is ${env.HOST}"
                 echo "TARGET_ENV is ${env.TARGET_ENV}"
                 }
                 
