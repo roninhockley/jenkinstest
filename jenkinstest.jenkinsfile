@@ -19,6 +19,7 @@ pipeline{
                 script{
                 echo "HOST is ${env.HOST}"
                 echo "TARGET_ENV is ${env.TARGET_ENV}"
+                echo "workspace is ${env.WORKSPACE}"
                 }
                 
             }
