@@ -15,7 +15,7 @@ pipeline{
         stage("A"){
             steps{
                 script{
-                echo "HOST is ${HOST}"
+                echo "HOST is ${env.HOST}"
                 }
                 
             }
