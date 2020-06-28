@@ -3,7 +3,7 @@
 pipeline{
     environment{
   //environment variables can be overidden in the passed in parameters of the jenkins job configuration
-    def TARGET_ENV = "${params.ENV}"
+    def TARGET_ENV = "${params.ENV.trim()}"
     def HOST = "nexus_server"
     def playbook_dir = "${WORKSPACE}/playbooks"
   }
