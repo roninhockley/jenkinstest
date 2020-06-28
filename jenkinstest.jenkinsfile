@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline{
     environment{
   //environment variables can be overidden in the passed in parameters of the jenkins job configuration
