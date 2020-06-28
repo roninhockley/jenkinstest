@@ -16,6 +16,7 @@ pipeline{
             steps{
                 script{
                 echo "HOST is ${env.HOST}.trim()"
+                echo "TARGET_ENV is ${env.TARGET_ENV}"
                 }
                 
             }
