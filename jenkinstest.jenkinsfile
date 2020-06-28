@@ -1,0 +1,46 @@
+pipeline{
+    environment{
+  //environment variables can be overidden in the passed in parameters of the jenkins job configuration
+    def TARGET_ENV = "${params.TARGET_ENV.trim()}"
+    def HOST = "nexus_server"
+    def playbook_dir = "${WORKSPACE}/playbooks"
+  }
+    agent any
+  options {
+    timestamps()
+    buildDiscarder(logRotator(numToKeepStr: '15', daysToKeepStr: '15'))
+    disableConcurrentBuilds()
+  }
+    stages{
+        stage("A"){
+            steps{
+                script{
+                echo "HOST is ${HOST}"
+                }
+                
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
